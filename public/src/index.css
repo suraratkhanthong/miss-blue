@@ -1,0 +1,30 @@
+body{
+	margin: 0;
+	color: #080808;
+	background-color: #f4fdff52;
+}
+.logo-page{
+	display: flex;
+	justify-content: center;
+	margin-bottom: -20px;
+	margin-top: -20px;
+}
+.show-product{
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.show-product img{
+	display: block;
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+ .show-product img{
+	width: 100%;
+	
+}
+
+}
