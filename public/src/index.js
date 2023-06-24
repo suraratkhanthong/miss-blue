@@ -1,11 +1,15 @@
 
 let count = 1;
 let customChange = false;
+let countImg = 3;
+let sizeScreenM = 96;
+let allSlide = document.querySelector(".slider").querySelectorAll('img');
+let allDots = document.querySelector(".slider-nav").querySelectorAll('div');
+if(window.innerWidth>=600){sizeScreenM=36}
 
 const sliding = (x)=>{
-	let left = `${-x*96}vw`;
-	let allSlide = document.querySelector(".slider").querySelectorAll('img');
-	let allDots = document.querySelector(".slider-nav").querySelectorAll('div');
+	let left = `${-x*sizeScreenM}vw`;
+	
 	
 	allSlide.forEach((element)=>{
 		element.style.left = left;
@@ -30,13 +34,21 @@ const sliding = (x)=>{
 		// }
 	// }
 // }, 3000)
+// setTimeout(()=>{
+	// rightSwipe()
+// }, 2000);
+
+function FnDots1(x){
+	sliding(x-1);
+	count=countImg;
+}
 
 const leftSwipe = ()=>{
 	customChange = true;
 	setTimeout(()=>{customChange=false}, 2000);
 	if(count == 1){
-		sliding(2);
-		count=3;
+		sliding(countImg-1);
+		count=countImg;
 	}else{
 		count -= 1;
 		sliding(count -1);
@@ -46,7 +58,7 @@ const leftSwipe = ()=>{
 const rightSwipe = ()=>{
 	customChange = true;
 	setTimeout(()=>{customChange=false}, 2000);
-	if(count == 3){
+	if(count == countImg){
 		sliding(0);
 		count=1;
 	}else{
@@ -67,14 +79,15 @@ document.querySelector(".slider").addEventListener('touchstart', function(e) {
 	var touchLocation = e.targetTouches[0];
     countTouchStart =+ touchLocation.pageX; 
 })
+
+console.log(countTouchStart);
+document.querySelector(".slider").addEventListener('touchend', function(e) {
+	countTouchMove-countTouchStart > 0 ? leftSwipe() : rightSwipe()
+})
+
 document.querySelector(".slider").addEventListener('touchmove', function(e) {
 	var touchLocation = e.targetTouches[0];
     countTouchMove =+ touchLocation.pageX; 
-})
-console.log(countTouchStart);
-document.querySelector(".slider").addEventListener('touchend', function(e) {
-   // console.log("countTouchStart"+ countTouchStart  +" : countTouchMove"+ countTouchMove);
-	countTouchMove-countTouchStart > 0 ? leftSwipe() : rightSwipe()
 })
 
 
