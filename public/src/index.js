@@ -58,6 +58,28 @@ const rightSwipe = ()=>{
 document.querySelector(".left").onclick=()=>{leftSwipe()}
 document.querySelector(".right").onclick=()=>{rightSwipe()}
 
+// ---------------- Mobile ----------------------
+
+let countTouchMove = 0;
+let countTouchStart = 0;
+
+document.querySelector(".slider").addEventListener('touchstart', function(e) {
+	var touchLocation = e.targetTouches[0];
+    countTouchStart =+ touchLocation.pageX; 
+})
+document.querySelector(".slider").addEventListener('touchmove', function(e) {
+	var touchLocation = e.targetTouches[0];
+    countTouchMove =+ touchLocation.pageX; 
+})
+console.log(countTouchStart);
+document.querySelector(".slider").addEventListener('touchend', function(e) {
+   // console.log("countTouchStart"+ countTouchStart  +" : countTouchMove"+ countTouchMove);
+	countTouchMove-countTouchStart > 0 ? leftSwipe() : rightSwipe()
+})
+
+
+// ---------------- PC ----------------------
+
 document.querySelector(".slider").onpointerdown=(e)=>{
 	let initX = e.clientX;
 	document.querySelector(".slider").onpointerup=(up)=>{
