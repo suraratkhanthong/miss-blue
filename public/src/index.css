@@ -39,6 +39,8 @@ body{
 	filter: drop-shadow(1px 1px 20px #b58975);
 	cursor: grab;
 	border-radius: 15px;
+	/* margin-bottom: 5vw; */
+	/* margin-top: 5vw; */
 }
 .slider img{
 	position: relative;
@@ -65,41 +67,38 @@ body{
 	scale: 1.5;
 	border: 1px solid #eeff5d;
 }
+
+.btn-slider{
+	/* display: inline-block; */
+	/* margin-bottom: -150px; */
+}
 .left{
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: inline-block;
 	height: 3vw;
 	width: 3vw;
 	background: whitesmoke;
 	padding: 0.8vw;
 	font-family: cursive;
 	border-radius: 0.85vw;
-	top: 23vw;
-	left: 19vw;
 	color: gray;
 	cursor: pointer;
-	z-index: 1;
-	font-size: 1vw;
+	/* z-index: 1; */
+	/* margin-left: 23vw; */
+	/* margin-bottom: -150px; */
 }
 .right{
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: inline-block;
 	height: 3vw;
 	width: 3vw;
 	background: whitesmoke;
 	padding: 0.8vw;
 	font-family: cursive;
 	border-radius: 0.85vw;
-	top: 23vw;
-	right: 19vw;
 	color: gray;
 	cursor: pointer;
-	z-index: 1;
-	font-size: 1vw;
+	/* z-index: 1; */
+	/* margin-left: 41vw; */
+	/* margin-bottom: -150px; */
 }
 
 /* .show-product{ */
